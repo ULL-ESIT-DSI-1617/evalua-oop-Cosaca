@@ -1,17 +1,17 @@
-// TextCell Class
+/* TextCell Class
 function TextCell(text) {
   this.text = text.split("\n");
 }
 /*
   minWidth() returns a number indicating this cell’s minimum width
   (in characters).
-*/
+
 TextCell.prototype.minWidth = function() {
   /*
     The reduce() method applies a function against an accumulator and
     each element in the array (from left to right) to reduce it to a
     single value.
-  */
+
   return this.text.reduce(function(width, line) {
     return Math.max(width, line.length);
   }, 0);
@@ -19,7 +19,7 @@ TextCell.prototype.minWidth = function() {
 /*
   minHeight() returns a number indicating the minimum height this
   cell requires (in lines).
-*/
+
 TextCell.prototype.minHeight = function() {
   return this.text.length;
 };
@@ -27,7 +27,7 @@ TextCell.prototype.minHeight = function() {
   draw(width, height) returns an array of length height, which contains
   a series of strings that are each width characters wide. This
   represents the content of the cell.
-*/
+
 TextCell.prototype.draw = function(width, height) {
   var result = [];
   for (var i = 0; i < height; i++) {
@@ -36,7 +36,32 @@ TextCell.prototype.draw = function(width, height) {
   }
   return result;
 };
-// End TextCell
+ End TextCell */
+
+class TextCell {
+  constructor(text) {
+    this.text = text;
+  }
+
+  minwidth() {
+    return this.text.reduce((width, line) =>
+    Math.max(width, line.length));
+  }
+
+  minHeight() {
+    return this.text.length;
+  }
+
+  draw(width, height) {
+    let result = [];
+    for (let i = 0; i < this.height; i++) {
+      let line = this.text[i] || "";
+      result.push(line + " ".repeat(width - line.length));
+    }
+    return this.result;
+  }
+}
+
 
 module.exports = {
   TextCell: TextCell
