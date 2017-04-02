@@ -54,7 +54,7 @@ class TextCell {
 
   draw(width, height) {
     let result = [];
-    for (let i = 0; i < this.height; i++) {
+    for (let i = 0; i < height; i++) {
       let line = this.text[i] || "";
       result.push(line + " ".repeat(width - line.length));
     }
