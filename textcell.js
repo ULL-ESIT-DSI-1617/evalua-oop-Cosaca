@@ -40,12 +40,13 @@ TextCell.prototype.draw = function(width, height) {
 
 class TextCell {
   constructor(text) {
-    this.text = text;
+    this.text = text.split("\n");
   }
 
-  minwidth() {
-    return this.text.reduce((width, line) =>
-    Math.max(width, line.length));
+  minWidth() {
+    return this.text.reduce(function(width, line) {
+      return Math.max(width, line.length);
+        }, 0);
   }
 
   minHeight() {
@@ -61,7 +62,6 @@ class TextCell {
     return this.result;
   }
 }
-
 
 module.exports = {
   TextCell: TextCell
